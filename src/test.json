@@ -17,7 +17,7 @@
             "name": "Подача заявления",
             "description": "На этом этапе требуется указать все необходиме данные для подачи заявления",
             "userStep": true,
-            "status": "inactive",
+            "status": "active",
             "fields": [
                 {
                     "type": "string",
@@ -88,7 +88,7 @@
             "name": "Подписание договора",
             "description": "На этом этапе заявитель подписывает договор",
             "userStep": true,
-            "status": "active",
+            "status": "inactive",
             "fields": [
                 {
                     "type": "signature",

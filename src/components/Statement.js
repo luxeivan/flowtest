@@ -7,15 +7,24 @@ import File from './form/File'
 import Comment from './form/Comment'
 import ModalWindow from './ModalWindow'
 import Signature from './form/Signature'
+import axios from 'axios'
 
 export default function Statement() {
     const [sendedNotification, setSendedNotification] = useState(false)
     const [statement, setStatement] = useState({})
     useEffect(() => {
-        // console.log(testData)
-        setStatement(testData)
-
+        fetchTestData()
     }, [])
+    const fetchTestData = () => {
+        try {
+            axios.get('https://7fd7db41-3632-40eb-bbaf-36ff1f7cc50a.selstorage.ru/test.json')
+                .then(res => {
+                    setStatement(res.data)
+                })
+        } catch (error) {
+            console.log(error)
+        }
+    }
     const handlerSubmit = (event) => {
         event.preventDefault()
         console.log('click')
@@ -26,8 +35,8 @@ export default function Statement() {
     }
     return (
         <div>
+            <Button onClick={fetchTestData}>Обновить данные</Button>
             <div style={{ margin: "30px" }}>
-
                 <h2>{statement.name}</h2>
                 <h5 style={{ color: "#999" }}>{statement.description}</h5>
             </div>
@@ -60,7 +69,7 @@ export default function Statement() {
                                 backgroundColor: step.status === "active" ? (step.userStep ? "rgb(25, 135, 84)" : "rgb(255, 193, 7)") : false
                             }}>
                                 <h3 style={{ color: step.status === "active" ? (step.userStep ? "white" : "black") : 'black' }}>{step.name}</h3>
-                                <span style={{ color: step.status === "active" ? (step.userStep ? "lightgray" :"gray") : 'gray' }}>{step.description}</span>
+                                <span style={{ color: step.status === "active" ? (step.userStep ? "lightgray" : "gray") : 'gray' }}>{step.description}</span>
                             </Card.Header>
                             <Card.Body>
                                 <Card.Text>
