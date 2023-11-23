@@ -1,0 +1,137 @@
+{
+    "code": "MOE-TP-1.0.0",
+    "name": "Технологическое подключение",
+    "description": "Технологическое подключение физического лица на выбранную мощность",
+    "owner": "Департамент технологического присоединения",
+    "claimer": null,
+    "from": null,
+    "begin": null,
+    "end": null,
+    "durationPlan": "14",
+    "result": null,
+    "successful": null,
+    "controlSum": "1234567890",
+    "steps": [
+        {
+            "number": 1,
+            "name": "Подача заявления",
+            "description": "На этом этапе требуется указать все необходиме данные для подачи заявления",
+            "userStep": true,
+            "status": "inactive",
+            "fields": [
+                {
+                    "type": "string",
+                    "length": 100,
+                    "displayName": "Имя",
+                    "name": "firstname",
+                    "description": "Имя заявителя",
+                    "value": null
+                },
+                {
+                    "type": "string",
+                    "length": 100,
+                    "displayName": "Фамилия",
+                    "name": "lastname",
+                    "description": "Фамилия заявителя",
+                    "value": null
+                },
+                {
+                    "type": "enum",
+                    "values": [
+                        {
+                            "name": "10 КВт",
+                            "value": "10"
+                        },
+                        {
+                            "name": "15 КВт",
+                            "value": "15"
+                        },
+                        {
+                            "name": "20 КВт",
+                            "value": "20"
+                        }
+                    ],
+                    "displayName": "Мощность ",
+                    "name": "power",
+                    "description": "Имя заявителя",
+                    "value": null
+                },
+                {
+                    "type": "file",
+                    "displayName": "Скан документа на объект подключения",
+                    "name": "scanDoc",
+                    "description": "Скан документа на объект подключения",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "number": 2,
+            "name": "Формирование договора",
+            "description": "На этом этапе формируется договор компанией Мособлэнерго",
+            "duration": "4",
+            "userStep": false,
+            "status": "inactive",
+            "fields": [
+                {
+                    "type": "comment",
+                    "length": 200,
+                    "displayName": "Комментарий",
+                    "name": "comment",
+                    "description": "Комментарий от Мособлэнерго",
+                    "value": "Договор подготовлен"
+                }
+            ]
+        },
+        {
+            "number": 3,
+            "name": "Подписание договора",
+            "description": "На этом этапе заявитель подписывает договор",
+            "userStep": true,
+            "status": "active",
+            "fields": [
+                {
+                    "type": "signature",
+                    "displayName": "Договор на технологическое подключение",
+                    "name": "dogovor",
+                    "description": "Договор с компанией Мособлэнерго",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "number": 4,
+            "name": "Строительство на объекте",
+            "description": "На этом этапе компания Мособлэнерго производит стройку и подключение нового абонента",
+            "duration": "7",
+            "userStep": false,
+            "status": "inactive",
+            "fields": [
+                {
+                    "type": "comment",
+                    "displayName": "Комментарий",
+                    "name": "comment",
+                    "description": "Комментарий от Мособлэнерго",
+                    "value": null
+                }
+            ]
+        },
+        {
+            "number": 5,
+            "name": "Подписание акта выполненых работ",
+            "description": "На этом этапе новый абонент подписывает акт выполеных работ по подключению",
+            "duration": "7",
+            "userStep": true,
+            "status": "inactive",
+            "fields": [
+                {
+                    "type": "file",
+                    "displayName": "Акт выполненых работ",
+                    "name": "act",
+                    "description": "Акт выполненых работ по подключению",
+                    "value": null
+                }
+            ]
+        }
+    ]
+}
